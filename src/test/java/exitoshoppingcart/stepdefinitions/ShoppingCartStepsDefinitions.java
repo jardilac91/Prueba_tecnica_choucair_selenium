@@ -1,24 +1,89 @@
 package exitoshoppingcart.stepdefinitions;
 
+import exitoshoppingcart.tasks.RegisterEmail;
+import exitoshoppingcart.tasks.SelectCategoryAndSubcategory;
+import exitoshoppingcart.tasks.SelectProducts;
+import exitoshoppingcart.tasks.ValidateShoppingCart;
+import exitoshoppingcart.ui.ExitoHomePage;
+import exitoshoppingcart.utils.Config;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.actions.Open;
+import net.thucydides.core.annotations.Managed;
+import org.openqa.selenium.WebDriver;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+
+import exitoshoppingcart.utils.Config;
+
+import java.util.Collections;
+
+import static exitoshoppingcart.tasks.SelectCategoryAndSubcategory.selectcategoryandsubcategory;
+import static exitoshoppingcart.tasks.SelectProducts.selectproducts;
+import static exitoshoppingcart.tasks.RegisterEmail.registerEmail;
+import static exitoshoppingcart.tasks.ValidateShoppingCart.validateShoppingCart;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ShoppingCartStepsDefinitions {
+
+    @Managed()
+    protected WebDriver webDriver;
+    Config driver = new Config();
+
     @Given("the user is in the Exito shopping page.")
     public void theUserIsInTheExitoShoppingPage() {
+        driver.setupActor(webDriver);
+        theActorInTheSpotlight().wasAbleTo(Open.browserOn().the(ExitoHomePage.class));
     }
 
-    @When("the user select a <Category> and a <Subcategory>.")
-    public void theUserSelectACategoryAndASubcategory() {
+    @When("the user select a category {string} and a subcategory {string}.")
+    public void theUserSelectACategoryAndASubcategory(String category, String subcategory) {
+        SelectCategoryAndSubcategory.category = category;
+        SelectCategoryAndSubcategory.subcategory = subcategory;
+        theActorInTheSpotlight().attemptsTo(
+                selectcategoryandsubcategory()
+        );
+
     }
 
-    @And("adds five random products with an aleatory quantity between {int}{int}.")
-    public void addsFiveRandomProductsWithAnAleatoryQuantityBetween(int arg0, int arg1) {
+    @And("adds five random products with an aleatory quantity between 1-10 products.")
+    public void addsFiveRandomProductsWithAnAleatoryQuantityBetweenOneToTen() {
+        theActorInTheSpotlight().attemptsTo(
+                selectproducts()
+        );
     }
 
-    @Then("the name, total price, quantity and the number of the products in the shopping have to be the same as the selected products")
+    @And("add the email {string} to complete the purchase.")
+    public void addTheEmailToCompleteThePurchase(String email) {
+        RegisterEmail.email = email;
+        theActorInTheSpotlight().attemptsTo(
+                registerEmail()
+        );
+    }
+    @Then("the information of the products in the shopping have to be the same as the selected products")
     public void theNameTotalPriceQuantityAndTheNumberOfTheProductsInTheShoppingHaveToBeTheSameAsTheSelectedProducts() {
+        theActorInTheSpotlight().attemptsTo(
+                validateShoppingCart()
+        );
+
+        Collections.sort(SelectProducts.product_names);
+        Collections.sort(SelectProducts.product_quantities);
+        Collections.sort(SelectProducts.product_prices);
+        Collections.sort(ValidateShoppingCart.product_name_shopping_cart);
+        Collections.sort(ValidateShoppingCart.product_quantity_shopping_cart);
+        Collections.sort(ValidateShoppingCart.product_price_shopping_cart);
+
+        theActorInTheSpotlight().should(
+                seeThat(SelectProducts.product_names, equalTo(ValidateShoppingCart.product_name_shopping_cart)),
+                seeThat(SelectProducts.product_quantities, equalTo(ValidateShoppingCart.product_quantity_shopping_cart))
+        );
+
+        webDriver.quit();
     }
+
+
 }

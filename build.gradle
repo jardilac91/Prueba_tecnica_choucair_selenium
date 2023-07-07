@@ -9,6 +9,9 @@ repositories {
     mavenCentral()
 }
 
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
 ext{
     slf4jVersion = '1.7.7'
     serenityCoreVersion = '3.8.1'

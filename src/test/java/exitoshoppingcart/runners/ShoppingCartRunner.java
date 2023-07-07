@@ -11,7 +11,8 @@ import org.junit.runner.RunWith;
         },
         glue = {
                 "exitoshoppingcart.stepdefinitions"
-        }
+        },
+        snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class ShoppingCartRunner {
 }
