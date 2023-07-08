@@ -7,8 +7,6 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static exitoshoppingcart.ui.CartShoppingPage.*;
-import static exitoshoppingcart.ui.ExitoHomePage.SHOPPING_CART_BUTTON;
-import static exitoshoppingcart.utils.ConvertAmountToInt.convertAmountToInt;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class RegisterEmail implements Task {
@@ -17,8 +15,6 @@ public class RegisterEmail implements Task {
 
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(SHOPPING_CART_BUTTON, isClickable()).forNoMoreThan(10).seconds(),
-                Click.on(SHOPPING_CART_BUTTON),
                 WaitUntil.the(EMAIL_MODAL, isVisible()).forNoMoreThan(10).seconds(),
                 Enter.theValue(email).into(EMAIL_INPUT),
                 Click.on(CONFIRM_EMAIL_BUTTON),

@@ -29,7 +29,6 @@ public class ExitoHomePage extends PageObject {
 
     public static Target subCategorySelected(String subcategory){
         String subcategory2 = String.format("Categorías-nivel3-%s", subcategory);
-        System.out.println(subcategory2);
         Target SUBCATEGORY = Target.the(String.format("SubCategory %s", subcategory))
                 .located(By.id(String.format("Categorías-nivel3-%s", subcategory)));
         return SUBCATEGORY;

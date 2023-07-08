@@ -22,7 +22,7 @@ public class SelectCategoryAndSubcategory implements Task {
                 Click.on(exitohomepage().categorySelected(category)),
                 WaitUntil.the(SUBMENU, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(exitohomepage().subCategorySelected(subcategory)),
-                WaitUntil.the(MENU, isNotVisible()).forNoMoreThan(10).seconds()
+                WaitUntil.the(MENU, isNotVisible()).forNoMoreThan(20).seconds()
         );
     }
 

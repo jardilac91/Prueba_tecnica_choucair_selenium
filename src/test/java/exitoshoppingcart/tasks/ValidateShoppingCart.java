@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static exitoshoppingcart.ui.CartShoppingPage.*;
-import static exitoshoppingcart.utils.ConvertAmountToInt.convertAmountToInt;
+import static exitoshoppingcart.utils.ConvertNumberToInt.convertAmountToInt;
 
 
 public class ValidateShoppingCart implements Task {
@@ -45,6 +45,11 @@ public class ValidateShoppingCart implements Task {
                     resolveFor(actor).getText();
             product_quantity_shopping_cart.add(convertAmountToInt(product_quantity));
         }
+
+        System.out.println(String.format("Nombres de los productos en carrito: %s", product_name_shopping_cart));
+        System.out.println(String.format("cantidad de productos en carrito: %s", product_quantity_shopping_cart));
+        System.out.println(String.format("Precios  de los productos en carrito: %s", product_price_shopping_cart));
+        System.out.println(String.format("Total de la compra en carrito: %s", total_purchase));
 
 
     }

@@ -4,9 +4,12 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.targets.Target;
+import net.serenitybdd.core.exceptions.NoSuchElementException;
+import org.awaitility.Awaitility;
 import org.openqa.selenium.By;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ProductsPage extends PageObject {
 
@@ -34,6 +37,8 @@ public class ProductsPage extends PageObject {
     public static final Target ADD_PRODUCT_BUTTON = Target.the("Add product button").
             located(By.xpath("//span[contains(text(),'Agregar')]"));
 
+    public static final Target UNITS = Target.the("Units of product").
+            located(By.xpath("//*[@class='exito-vtex-components-4-x-stepperContainerQty']"));
     public static final Target ADD_UNITS_BUTTON = Target.the("Add more units button").
             located(By.className("product-summary-add-to-car-plus"));
 
@@ -46,6 +51,9 @@ public class ProductsPage extends PageObject {
                 located(By.className("vtex-search-result-3-x-galleryItem")).resolveAllFor(actor);
         return PRODUCTS;
     }
+
+    public static Target NO_PRODUCT_AVAILABLE = Target.the("No product available message").
+            located(By.xpath("(//*[@class='pr5 mw6-ns lh-copy'])"));
 
     public static ProductsPage productsPage(){
         return new ProductsPage();
