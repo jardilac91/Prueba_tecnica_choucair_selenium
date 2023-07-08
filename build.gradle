@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'org.sonarqube' version '3.0'
 }
 
 group = 'org.example'
@@ -21,17 +22,29 @@ ext{
 }
 
 dependencies {
-    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+    testImplementation "net.serenity-bdd:serenity-junit5:${serenityCoreVersion}",
+            "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "ch.qos.logback:logback-classic:${logbackVersion}"
+    implementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-junit5:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}",
-            "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
-            "org.assertj:assertj-core:${assertJVersion}",
-            "ch.qos.logback:logback-classic:${logbackVersion}"
+            "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     implementation "io.github.bonigarcia:webdrivermanager:5.4.0"
+}
+
+sonarqube {
+    properties {
+        property 'sonar.host.url', 'http://54.85.36.145:9000/'
+        property "sonar.login", "sqa_e4d233e4ba42b82b21e12f5e63adc18fff6379c6"
+        property 'sonar.projectName', 'Prueba_Selenium_Choucair'
+        property 'encoding', 'UTF-8'
+        property 'charSet', 'UTF-8'
+    }
 }
 
 test {

@@ -1,6 +1,10 @@
 package exitoshoppingcart.utils;
 
 public class ConvertNumberToInt {
+
+    private ConvertNumberToInt() {
+        throw new IllegalStateException("Utility class");
+    }
     public static int convertAmountToInt(String amount){
         String amount_without_symbols = amount.replace(" ","").
                 replace("$","").

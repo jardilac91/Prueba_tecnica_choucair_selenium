@@ -4,7 +4,11 @@ import java.util.*;
 
 public class GenerateRandomNumbers {
     static Random random = new Random();
-    public static List<Integer> select_five_random_products(int products){
+
+    private GenerateRandomNumbers() {
+        throw new IllegalStateException("Utility class");
+    }
+    public static List<Integer> selectFiveRandomProducts(int products){
         List<Integer> random_numbers = new ArrayList<>();
         Set<Integer> unique_product = new HashSet<>();
 
@@ -16,9 +20,9 @@ public class GenerateRandomNumbers {
         return random_numbers;
     }
 
-    public static Integer select_random_quantity_of_products(){
-        int quantity_of_products = random.nextInt(10) + 1;
-        return quantity_of_products;
+    public static Integer selectRandomQuantityOfProducts(){
+        return random.nextInt(10) + 1;
+
 
     }
 }

@@ -4,12 +4,10 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.targets.Target;
-import net.serenitybdd.core.exceptions.NoSuchElementException;
-import org.awaitility.Awaitility;
 import org.openqa.selenium.By;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 public class ProductsPage extends PageObject {
 
@@ -24,7 +22,7 @@ public class ProductsPage extends PageObject {
             located(By.className("exito-footer-3-x-footer"));
     public static final String PRODUCT = "//*[@id='gallery-layout-container']/div[%s]";
 
-    public static final String FAST_BUY_BUTTON = "//*[@id='gallery-layout-container']/div[%s]" +
+    public static final String FAST_BUY_BUTTON = PRODUCT +
             "/section/a/article/div[2]/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div/div";
     public static final Target QUICK_PURCHASE_MODAL = Target.the("Quick purchase modal").
             located(By.xpath("//div[contains(@class, 'exito-vtex-components-4-x-quickPurchaseModalContainermodal')]"));
@@ -52,12 +50,6 @@ public class ProductsPage extends PageObject {
         return PRODUCTS;
     }
 
-    public static Target NO_PRODUCT_AVAILABLE = Target.the("No product available message").
-            located(By.xpath("(//*[@class='pr5 mw6-ns lh-copy'])"));
-
-    public static ProductsPage productsPage(){
-        return new ProductsPage();
-    }
 }
 
 

@@ -20,12 +20,11 @@ public class ValidateShoppingCart implements Task {
     public static List<Integer> product_price_shopping_cart = new ArrayList<>();
     public static List<Integer> product_quantity_shopping_cart = new ArrayList<>();
 
-    public static int total_purchase;
+    public static int total_purchase = 0;
     String product_price;
     String product_quantity;
     @Override
     public <T extends Actor> void performAs(T actor){
-        total_purchase = 0;
         total_purchase = convertAmountToInt(TOTAL_PURCHASE.resolveFor(actor).getText());
         for(int product = 1; product<=5; product ++){
             if(product == 3){
@@ -45,12 +44,6 @@ public class ValidateShoppingCart implements Task {
                     resolveFor(actor).getText();
             product_quantity_shopping_cart.add(convertAmountToInt(product_quantity));
         }
-
-        System.out.println(String.format("Nombres de los productos en carrito: %s", product_name_shopping_cart));
-        System.out.println(String.format("cantidad de productos en carrito: %s", product_quantity_shopping_cart));
-        System.out.println(String.format("Precios  de los productos en carrito: %s", product_price_shopping_cart));
-        System.out.println(String.format("Total de la compra en carrito: %s", total_purchase));
-
 
     }
 

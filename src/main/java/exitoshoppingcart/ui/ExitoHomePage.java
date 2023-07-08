@@ -21,17 +21,16 @@ public class ExitoHomePage extends PageObject {
 
     public static Target categorySelected(String category){
 
-        String category_id =  String.format("//*[@id='undefined-nivel2-%s']",category);
-        Target CATEGORY = Target.the(String.format("Category %s", category))
-                .located(By.xpath(category_id));
-        return CATEGORY;
+        return Target.the(String.format("Category %s", category))
+                .located(By.xpath(String.format("//*[@id='undefined-nivel2-%s']",category)));
+
     }
 
     public static Target subCategorySelected(String subcategory){
-        String subcategory2 = String.format("Categorías-nivel3-%s", subcategory);
-        Target SUBCATEGORY = Target.the(String.format("SubCategory %s", subcategory))
+
+        return Target.the(String.format("SubCategory %s", subcategory))
                 .located(By.id(String.format("Categorías-nivel3-%s", subcategory)));
-        return SUBCATEGORY;
+
     }
 
     public static ExitoHomePage exitohomepage(){

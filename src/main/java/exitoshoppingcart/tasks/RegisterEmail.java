@@ -11,18 +11,22 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class RegisterEmail implements Task {
 
-    public static String email;
+    private String email;
+
+    public RegisterEmail(String email) {
+        this.email = email;
+    }
 
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(EMAIL_MODAL, isVisible()).forNoMoreThan(10).seconds(),
-                Enter.theValue(email).into(EMAIL_INPUT),
+                Enter.theValue(this.email).into(EMAIL_INPUT),
                 Click.on(CONFIRM_EMAIL_BUTTON),
                 WaitUntil.the(EMAIL_MODAL, isNotVisible()).forNoMoreThan(10).seconds()
         );
     }
 
-    public static RegisterEmail registerEmail(){
-        return new RegisterEmail();
+    public static RegisterEmail registerEmail(String email){
+        return new RegisterEmail(email);
     }
 }

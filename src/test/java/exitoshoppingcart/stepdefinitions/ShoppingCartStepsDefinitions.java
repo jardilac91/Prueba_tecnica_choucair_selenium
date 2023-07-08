@@ -1,7 +1,5 @@
 package exitoshoppingcart.stepdefinitions;
 
-import exitoshoppingcart.tasks.RegisterEmail;
-import exitoshoppingcart.tasks.SelectCategoryAndSubcategory;
 import exitoshoppingcart.tasks.SelectProducts;
 import exitoshoppingcart.tasks.ValidateShoppingCart;
 import exitoshoppingcart.ui.ExitoHomePage;
@@ -10,27 +8,20 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.Consequence;
 import net.serenitybdd.screenplay.actions.Open;
-import net.serenitybdd.screenplay.ensure.Ensure;
 import net.thucydides.core.annotations.Managed;
-import org.hamcrest.Matcher;
 import org.openqa.selenium.WebDriver;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-import exitoshoppingcart.utils.Config;
-
 import java.util.Collections;
-import java.util.List;
 
 import static exitoshoppingcart.tasks.SelectCategoryAndSubcategory.selectcategoryandsubcategory;
 import static exitoshoppingcart.tasks.SelectProducts.selectproducts;
 import static exitoshoppingcart.tasks.RegisterEmail.registerEmail;
 import static exitoshoppingcart.tasks.ValidateShoppingCart.validateShoppingCart;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ShoppingCartStepsDefinitions {
 
@@ -46,10 +37,8 @@ public class ShoppingCartStepsDefinitions {
 
     @When("the user select a category {string} and a subcategory {string}.")
     public void theUserSelectACategoryAndASubcategory(String category, String subcategory) {
-        SelectCategoryAndSubcategory.category = category;
-        SelectCategoryAndSubcategory.subcategory = subcategory;
         theActorInTheSpotlight().attemptsTo(
-                selectcategoryandsubcategory()
+                selectcategoryandsubcategory(category, subcategory)
         );
 
     }
@@ -63,9 +52,8 @@ public class ShoppingCartStepsDefinitions {
 
     @And("add the email {string} to complete the purchase.")
     public void addTheEmailToCompleteThePurchase(String email) {
-        RegisterEmail.email = email;
         theActorInTheSpotlight().attemptsTo(
-                registerEmail()
+                registerEmail(email)
         );
     }
     @Then("the information of the products in the shopping cart have to be the same as the selected products.")
