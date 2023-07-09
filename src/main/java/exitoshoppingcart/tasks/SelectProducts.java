@@ -61,9 +61,9 @@ public class SelectProducts implements Task {
                 }else {
 
                     actor.attemptsTo(
+                            WaitUntil.the(UNITS, isVisible()).forNoMoreThan(10).seconds(),
                             Click.on(ADD_UNITS_BUTTON),
                             Click.on(CONTINUE_WITH_SHOPPING_BUTTON),
-                            WaitUntil.the(UNITS, isVisible()).forNoMoreThan(10).seconds(),
                             WaitUntil.the(QUICK_PURCHASE_MODAL, isNotVisible()).forNoMoreThan(10).seconds(),
                             Click.on(By.xpath(String.format(FAST_BUY_BUTTON, index_products.get(index)))),
                             WaitUntil.the(QUICK_PURCHASE_MODAL, isVisible()).forNoMoreThan(10).seconds()
@@ -71,7 +71,7 @@ public class SelectProducts implements Task {
                     units = convertUnitsToInt(UNITS.resolveFor(actor).getText());
                 }
                 if(units < quantity){
-                    product_quantity = units-1;
+                    product_quantity = units;
                     break;
                 }
             }
@@ -82,7 +82,8 @@ public class SelectProducts implements Task {
             product_prices.add(product_price*product_quantity);
             total_purchased += (product_price*product_quantity);
             actor.attemptsTo(
-                    Click.on(CONTINUE_WITH_SHOPPING_BUTTON)
+                    Click.on(CONTINUE_WITH_SHOPPING_BUTTON),
+                    WaitUntil.the(QUICK_PURCHASE_MODAL, isNotVisible()).forNoMoreThan(10).seconds()
             );
 
         }
