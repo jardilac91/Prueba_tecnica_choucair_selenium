@@ -71,17 +71,17 @@ public class ShoppingCartStepsDefinitions {
 
         theActorInTheSpotlight().should(
                 seeThat("The products name has to be: ",
-                        product_names -> SelectProducts.product_names,
-                        equalTo(ValidateShoppingCart.product_name_shopping_cart)),
+                        product_names -> ValidateShoppingCart.product_name_shopping_cart,
+                        equalTo(SelectProducts.product_names)),
                 seeThat("The products quantity has to be: ",
-                        product_quantity -> SelectProducts.product_quantities,
-                        equalTo(ValidateShoppingCart.product_quantity_shopping_cart)),
+                        product_quantity -> ValidateShoppingCart.product_quantity_shopping_cart,
+                        equalTo(SelectProducts.product_quantities)),
                 seeThat("The products price has to be: ",
-                        product_price -> SelectProducts.product_prices,
-                        equalTo(ValidateShoppingCart.product_price_shopping_cart)),
+                        product_price -> ValidateShoppingCart.product_price_shopping_cart,
+                        equalTo(SelectProducts.product_prices)),
                 seeThat("The total purchased has to be: ",
-                        total_purchase -> SelectProducts.total_purchased,
-                        equalTo(ValidateShoppingCart.total_purchase))
+                        total_purchase -> ValidateShoppingCart.total_purchase,
+                        equalTo(SelectProducts.total_purchased))
         );
 
         webDriver.quit();

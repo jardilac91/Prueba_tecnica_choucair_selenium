@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Config {
 
+
     @Managed
     protected WebDriver webDriver;
     public void setupActor( WebDriver webDriver){
