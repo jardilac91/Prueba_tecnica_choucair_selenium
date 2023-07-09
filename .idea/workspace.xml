@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b38127e-63ee-4f80-8401-b4ae4297b10d" name="Changes" comment="Se dejan prints de listado de productos comprados">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/stepdefinitions/ShoppingCartStepsDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/stepdefinitions/ShoppingCartStepsDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/tasks/RegisterEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exitoshoppingcart/tasks/RegisterEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/tasks/SelectCategoryAndSubcategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exitoshoppingcart/tasks/SelectCategoryAndSubcategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/tasks/SelectProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exitoshoppingcart/tasks/SelectProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/tasks/ValidateShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exitoshoppingcart/tasks/ValidateShoppingCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/ui/CartShoppingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exitoshoppingcart/ui/CartShoppingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/ui/ExitoHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exitoshoppingcart/ui/ExitoHomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/ui/ProductsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exitoshoppingcart/ui/ProductsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/utils/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exitoshoppingcart/utils/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/utils/ConvertNumberToInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exitoshoppingcart/utils/ConvertNumberToInt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/exitoshoppingcart/utils/GenerateRandomNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exitoshoppingcart/utils/GenerateRandomNumbers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/serenity.conf" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/serenity.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +28,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -138,6 +127,16 @@
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="d3d6d805-bbd2-4686-9307-278d840d3808">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="d5608fd9-bcc0-4588-b5fb-bad4149e3d1b">
           <value>
             <State />
           </value>
